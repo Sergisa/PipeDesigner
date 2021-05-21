@@ -16,7 +16,7 @@ public class ElementComboRenderer extends JLabel implements ListCellRenderer<Ele
         setBorder(margin);
 
         setText(value.getDescription());
-        setIcon(value.getIcon());
+        setIcon(new ImageIcon(value.getIcon().getImage().getScaledInstance(35,35, Image.SCALE_DEFAULT)));
         return this;
     }
 }

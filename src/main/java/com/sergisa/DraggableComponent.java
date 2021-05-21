@@ -236,7 +236,7 @@ public class DraggableComponent extends JLabel {
                 setBounds(newX, newY, getWidth(), getHeight());
                 setLocation(newX, newY);
                 setLayout(null);
-                repaint();
+                //repaint();
             }
         }
 

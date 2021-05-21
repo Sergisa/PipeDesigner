@@ -14,9 +14,9 @@ public class Element {
     }
 
     public Element(ImageIcon icon, Type type) {
-        int size = 35;
+        int size = 70;
         this.icon = new ImageIcon(
-                icon.getImage().getScaledInstance(size, size, Image.SCALE_SMOOTH), icon.getDescription()
+                icon.getImage().getScaledInstance(size, size, Image.SCALE_DEFAULT), icon.getDescription()
         );
         this.description = this.icon.getDescription();
         this.icon.setDescription(description);

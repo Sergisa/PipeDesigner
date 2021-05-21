@@ -5,12 +5,20 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GridOverlay extends JComponent {
+public class GridOverlay extends JPanel {
     private static final int LINES = Settings.getInstance().getLinesCount();
 
     private static int LINE_SPACING = Settings.getInstance().getGridStep();
     private List<Line> gridLines;
     private boolean gridVisible = true;
+
+    public GridOverlay(LayoutManager layout) {
+        super(layout);
+    }
+
+    public GridOverlay() {
+        super();
+    }
 
     @Override
     protected void paintComponent(Graphics g) {

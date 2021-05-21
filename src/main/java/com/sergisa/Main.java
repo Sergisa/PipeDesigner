@@ -17,10 +17,12 @@ public class Main {
 
 
         Application.getInstance().start();
+
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 DraggingForm mainForm = new DraggingForm();
+                Application.getInstance().setMainWinowInstance(mainForm);
             }
         });
     }

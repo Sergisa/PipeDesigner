@@ -18,7 +18,7 @@
       </component>
       <scrollpane id="d10b2">
         <constraints>
-          <grid row="0" column="6" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="6" row-span="4" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="0.0"/>
         </constraints>
         <properties/>
@@ -37,7 +37,7 @@
       </scrollpane>
       <component id="b93d0" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
@@ -46,7 +46,7 @@
       </component>
       <component id="b9d9a" class="javax.swing.JLabel" binding="activeComponentDescription">
         <constraints>
-          <grid row="3" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="3" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
@@ -55,7 +55,7 @@
       </component>
       <grid id="fd144" binding="drawArea" custom-create="true" layout-manager="GridBagLayout">
         <constraints>
-          <grid row="1" column="1" row-span="2" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="3" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
         </constraints>
         <properties/>
@@ -82,7 +82,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="2823c" class="com.sergisa.CustomButton" binding="settings" custom-create="true">
+      <component id="2823c" class="com.sergisa.CustomButton" binding="settings">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
@@ -110,20 +110,18 @@
         </clientProperties>
         <border type="none"/>
         <children>
-          <component id="d7564" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="eba1b" class="com.sergisa.CustomButton" binding="angleCreate">
             <constraints/>
             <properties>
-              <horizontalAlignment value="0"/>
-              <iconTextGap value="4"/>
-              <margin top="0" left="0" bottom="0" right="0"/>
-              <text value="Button"/>
-              <verticalAlignment value="0"/>
+              <icon value="components/008-leak.png"/>
+              <toolTipText value="Колено"/>
             </properties>
           </component>
-          <component id="25972" class="javax.swing.JButton" binding="button2" default-binding="true">
+          <component id="fe2d9" class="com.sergisa.CustomButton" binding="controlTerminalCreate">
             <constraints/>
             <properties>
-              <text value="Button"/>
+              <icon value="components/control.png"/>
+              <toolTipText value="Кран"/>
             </properties>
           </component>
         </children>

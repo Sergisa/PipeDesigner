@@ -14,7 +14,7 @@ public class Settings {
     private static final String path = "/home/sergisa/.dragger/settings.json";
     private int gridStep = 20;
     private boolean snapToGrid = true;
-    private int linesCount = 30;
+    private int linesCount = 20;
     private int defaultIconSize = 35;
     private static Settings settingsInstance;
     private final List<Element> availableElements;

@@ -13,15 +13,15 @@ import java.util.TimerTask;
 public class DraggingForm extends JFrame {
     private JPanel root;
     private JButton addElement;
-    private JComponent drawArea;
+    private JPanel drawArea;
     private JList<String> notesList;
     private JLabel activeComponentDescription;
     private JCheckBox showGridCheckBox;
     private JButton clearButton;
-    private JButton settings;
-    private JButton button1;
-    private JButton button2;
+    private CustomButton settings;
     private JCheckBox gridSnap;
+    private CustomButton angleCreate;
+    private CustomButton controlTerminalCreate;
     private final List<Element> availableElements;
     private DraggableComponent activeComponent;
     private final List<DraggableComponent> componentsList;
@@ -29,6 +29,14 @@ public class DraggingForm extends JFrame {
     private final NewElementSelectionDialog selectionDialog;
 
     public DraggingForm() {
+        ActionListener creator = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                if(actionEvent.getSource() == controlTerminalCreate){
+                    System.out.println("Creating control terminal");
+                }
+            }
+        };
         availableElements = new ArrayList<>();
         componentsList = new ArrayList<>();
         elementListViewModel = new DefaultListModel<>();
@@ -42,7 +50,8 @@ public class DraggingForm extends JFrame {
         selectionDialog = new NewElementSelectionDialog();
         selectionDialog.setLocationRelativeTo(this);
         clearButton.setIcon(new ImageIcon(new ImageIcon("src/main/resources/delete.png").getImage().getScaledInstance(24, 24, Image.SCALE_SMOOTH)));
-
+        angleCreate.addActionListener(creator);
+        controlTerminalCreate.addActionListener(creator);
         clearButton.addActionListener(e -> {
             ((GridOverlay) drawArea).clearComponents();
         });
@@ -135,13 +144,27 @@ public class DraggingForm extends JFrame {
         }
     }
 
+    public void toolSelected(ActionEvent e){
+        String path = "";
+        if (e.getSource() == angleCreate){
+            path = "src/main/resources/components/ext_int_angle.png";
+        }
+        else if (e.getSource() == controlTerminalCreate){
+            path = "src/main/resources/components/terminal.png";
+        }
+
+        DraggableComponent component = new DraggableComponent(new ImageIcon(path), 2);
+        componentsList.add(component);
+        drawArea.add(component);
+        drawArea.repaint();
+    }
+
     public void setGridStep(int step) {
         ((GridOverlay) drawArea).setStep(step);
     }
 
     private void createUIComponents() {
         drawArea = new GridOverlay();
-        settings = new CustomButton();
     }
 
 
@@ -233,16 +256,6 @@ public class DraggingForm extends JFrame {
         gbc.gridy = 1;
         gbc.fill = GridBagConstraints.BOTH;
         root.add(toolBar1, gbc);
-        button1 = new JButton();
-        button1.setHorizontalAlignment(0);
-        button1.setIconTextGap(4);
-        button1.setMargin(new Insets(0, 0, 0, 0));
-        button1.setText("Button");
-        button1.setVerticalAlignment(0);
-        toolBar1.add(button1);
-        button2 = new JButton();
-        button2.setText("Button");
-        toolBar1.add(button2);
         gridSnap = new JCheckBox();
         gridSnap.setSelected(true);
         gridSnap.setText("Привязвть к сетке");

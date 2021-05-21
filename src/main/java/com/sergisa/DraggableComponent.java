@@ -20,7 +20,7 @@ public class DraggableComponent extends JLabel {
     Border border = BorderFactory.createLineBorder(Color.BLUE, 1, true);
 
     public DraggableComponent(ImageIcon image, int verticaPolicy) {
-        super(image, verticaPolicy);
+        super(image);
         this.description = image.getDescription();
         this.image = image;
         parent = (GridOverlay) getParent();
@@ -28,7 +28,7 @@ public class DraggableComponent extends JLabel {
         setIcon(image);
         setBackground(new Color(0, 0, 0, 0));
         setOpaque(true);
-        setBounds(10, 10, image.getIconWidth() + 20, image.getIconHeight() + 20);
+        setBounds(20, 20, image.getIconWidth() + 20, image.getIconHeight() + 20);
         DraggableEventListener dragListener = new DraggableEventListener(Settings.getInstance().getGridStep());
         addMouseListener(dragListener);
         addMouseMotionListener(dragListener);

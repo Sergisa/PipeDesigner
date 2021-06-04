@@ -1,6 +1,7 @@
 package com.sergisa;
 
 import com.google.gson.Gson;
+import com.sergisa.elements.AbstractTool;
 
 import java.awt.*;
 import java.io.*;
@@ -12,17 +13,17 @@ public class Settings {
     private Stroke stroke1;
     private static final Gson gson = new Gson();
     private static final String path = "/home/sergisa/.dragger/settings.json";
-    private int gridStep = 20;
+    private int gridStep = 10;
     private boolean snapToGrid = true;
     private int linesCount = 20;
     private int defaultIconSize = 35;
     private static Settings settingsInstance;
-    private final List<Element> availableElements;
+    private final List<AbstractTool> availableElements;
 
     private Settings() {
         availableElements = new ArrayList<>();
 
-        for (File f : new File("src/main/resources/components").listFiles()) {
+        /*for (File f : new File("src/main/resources/components").listFiles()) {
 
             availableElements.add(new Element(f.getPath(), "Ext - Ext angle"));
         }
@@ -33,6 +34,7 @@ public class Settings {
         availableElements.add(new Element("src/main/resources/components/big_control.png", "Pipe control terminal"));
         availableElements.add(new Element("src/main/resources/components/broken_filt.png", "Ext - Int angle"));
         availableElements.add(new Element("src/main/resources/components/control.png", "Ext - Int angle"));
+         */
 
     }
 
@@ -104,7 +106,7 @@ public class Settings {
         this.snapToGrid = snapToGrid;
     }
 
-    public List<Element> getAvailableElements() {
+    public List<AbstractTool> getAvailableElements() {
         return availableElements;
     }
 

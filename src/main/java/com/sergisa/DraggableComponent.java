@@ -19,7 +19,7 @@ public class DraggableComponent extends JLabel {
     GridOverlay parent;
     Border border = BorderFactory.createLineBorder(Color.BLUE, 1, true);
 
-    public DraggableComponent(ImageIcon image, int verticaPolicy) {
+    public DraggableComponent(ImageIcon image) {
         super(image);
         this.description = image.getDescription();
         this.image = image;

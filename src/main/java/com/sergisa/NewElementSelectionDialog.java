@@ -1,5 +1,7 @@
 package com.sergisa;
 
+import com.sergisa.elements.AbstractTool;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,8 +11,8 @@ public class NewElementSelectionDialog extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JComboBox<Element> imageCombo;
-    private List<Element> elementsList;
+    private JComboBox<AbstractTool> imageCombo;
+    private List<AbstractTool> elementsList;
     private SelectionDialogListener listener;
 
     public NewElementSelectionDialog() {
@@ -18,12 +20,12 @@ public class NewElementSelectionDialog extends JDialog {
         setModal(true);
         setContentPane(contentPane);
         getRootPane().setDefaultButton(buttonOK);
-        for (Element element : Settings.getInstance().getAvailableElements()) {
+        for (AbstractTool element : Settings.getInstance().getAvailableElements()) {
             imageCombo.addItem(element);
         }
         buttonOK.addActionListener(e -> {
             if (listener != null) {
-                listener.onElementSelected((Element) imageCombo.getSelectedItem());
+                listener.onElementSelected((AbstractTool) imageCombo.getSelectedItem());
             }
             dispose();
         });

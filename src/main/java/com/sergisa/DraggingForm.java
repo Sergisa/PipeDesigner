@@ -1,5 +1,7 @@
 package com.sergisa;
 
+import com.sergisa.elements.AbstractTool;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -22,7 +24,7 @@ public class DraggingForm extends JFrame {
     private JCheckBox gridSnap;
     private CustomButton angleCreate;
     private CustomButton controlTerminalCreate;
-    private final List<Element> availableElements;
+    private final List<AbstractTool> availableElements;
     private DraggableComponent activeComponent;
     private final List<DraggableComponent> componentsList;
     private final DefaultListModel<String> elementListViewModel;
@@ -34,6 +36,8 @@ public class DraggingForm extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 if(actionEvent.getSource() == controlTerminalCreate){
                     System.out.println("Creating control terminal");
+                }else if(actionEvent.getSource() == angleCreate){
+
                 }
             }
         };
@@ -72,7 +76,7 @@ public class DraggingForm extends JFrame {
             }
         });
         selectionDialog.setListener(selectedElement -> {
-            DraggableComponent newDraggableObject = new DraggableComponent(selectedElement.getIcon(), JLabel.LEFT);
+            DraggableComponent newDraggableObject = new DraggableComponent(selectedElement.getIcon());
             newDraggableObject.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -153,7 +157,7 @@ public class DraggingForm extends JFrame {
             path = "src/main/resources/components/terminal.png";
         }
 
-        DraggableComponent component = new DraggableComponent(new ImageIcon(path), 2);
+        DraggableComponent component = new DraggableComponent(new ImageIcon(path));
         componentsList.add(component);
         drawArea.add(component);
         drawArea.repaint();

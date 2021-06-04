@@ -11,9 +11,11 @@ public class SettingsWindow extends JFrame {
     private JSpinner linesCountSpinner;
     private JLabel colorExample;
     private final JColorChooser colorChooser;
+    public EventManager eventManager;
 
     public SettingsWindow(String title) {
         $$$setupUI$$$();
+        eventManager = new EventManager("gridStepChanged", "gridColorChanged");
         setTitle(title);
         setContentPane(root);
         setSize(400, 200);
